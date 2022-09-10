@@ -1,0 +1,1 @@
+/usr/bin/clang -g  -rdynamic CMakeFiles/example.dir/test/example.o  -o example  -Wl,-rpath,/home/alien/Desktop/c++/build libz.so.1.2.8 
