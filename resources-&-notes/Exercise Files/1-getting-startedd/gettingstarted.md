@@ -8,3 +8,6 @@ to not need to use resolution operator for every use of a function from some lib
 'using namespace x' below the include pre-processor directives.
 
 for stdin use cin, for stdout use cout
+
+be sure to use c++10
+good online ref for c and c++: cppreference.com
