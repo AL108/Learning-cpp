@@ -50,3 +50,48 @@ final form: executable binary file
     //includes and macros here
 #endif 
 ````
+
+# static/dynamic memory areas
+Dynamic/heap memory can be allocated like in C
+with malloc. In addition there is a ```new```
+operator which which we can allocate
+objects to the heap. e.g.
+````
+car_a = new car("Hatchback",4) // returns pointer
+
+````
+'car->type' is like in C, i.e. gets whatever is stored at pointer 'car'.
+
+# References vs pointers
+They are aliases to existing variables. 
+e.g. 
+````
+int& my_ref = my_int
+```` 
+
+- Pointers don't have to be initalised, whereas refrences must be initisliased
+- A pointer can reference different objects, whereas a reference always references the object that it was first initialised to.
+- A pointer can be void and NULL, whereas references have fixed type and object
+- A pointer can have multiple levels of indirection, whereas a reference can only have one level of indirection (to the object initialised to)
+- Applications of references include:
+    - Passing paramters by reference
+    - Avoid copying large objects as function parameters (program uses less space)
+    - Avoid copying large objects in for loops (program uses less space)
+
+# Standard Template Library (STL) Vectors
+- They are dynamic-size containers
+- Memory is managed for you
+- Generic container class
+- Part of the cpp standard template librarya
+- vectors have front () and back (.pushback(e)
+
+e.g.
+```
+vector<int> numbers;
+vector<person> people;
+```
+## Iterators
+A pointer is a type of iterator
+To get iterator object to first element of vector, 
+we can use .begin().
+
