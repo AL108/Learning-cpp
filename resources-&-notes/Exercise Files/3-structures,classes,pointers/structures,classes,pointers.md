@@ -44,12 +44,26 @@ final form: executable binary file
 - implementation files must include their header files
 - don't forget to use a header guard e.g.
 - `using` keyword should not be used in header files
+- 
 ````
 #ifndef HEADER_H
 #define HEADER_H
     //includes and macros here
 #endif 
 ````
+## #pragma once
+From wikip:
+In c and cpp, #pragma once is a non-standard but 
+widely supported preprocessor directive designed
+to cause the current source file to be included
+once only in a single compilation. Thus #pragma
+once serves the same purpose as include guards, 
+but with several advantages including: less code, 
+avoidance of name clashes, and somtimes 
+improvement in compilation speed. 
+
+It is not available on all compilers.
+
 
 # static/dynamic memory areas
 Dynamic/heap memory can be allocated like in C
