@@ -1,0 +1,1 @@
+gpa = total points/ total credits

@@ -30,8 +30,26 @@ int main(){
 	// Write your code here
 
 	string student_str;
-	student_str = students[0].get_name(); // Change this to the selected student's name
-
+	for (int i = 0; i < students.size(); i++) {
+		if (students[i].get_id() == id) {
+			student_str = students[i].get_name();
+		}
+	}
+	int credits = 0;	
+	int cur_credits = 0;
+	for (int i = 0; i < grades.size(); i++) {
+		if (grades[i].get_student_id() == id) {
+			for (int j = 0; j < courses.size(); j++) {
+				if (courses[j].get_id() == grades[i].get_course_id()) {
+					cur_credits = courses[j].get_credits();
+					credits += cur_credits;
+					break;
+				}
+			}
+			GPA += ((4 - (grades[i].get_grade() - 65)) * cur_credits); // ascii offset
+		}
+	}
+	GPA /= credits;
 	cout << "The GPA for " << student_str << " is " << GPA << endl;
 	return (0);
 }
