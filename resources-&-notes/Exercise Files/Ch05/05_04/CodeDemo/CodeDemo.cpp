@@ -13,6 +13,8 @@ void initialize();
 StudentRecords SR;
 int id;
 
+
+
 int main(){
 	initialize();
 
