@@ -1,5 +1,6 @@
 #include "records.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -118,4 +119,69 @@ void StudentRecords::report_card(int sid){
 			points += get_num_grade(grd.get_grade()) * current_credits;
 		}
 	cout << "GPA: " << (points / credits) << endl;
+}
+
+void StudentRecords::load_records() {
+	ifstream inFile;
+	string fileErrorMsg = "failed does not exist";
+	string inLine = "";
+	// read in students
+	int sid;
+	string name;
+	inFile.open("students.txt");
+	if (inFile.fail()) cout << fileErrorMsg << endl;
+	else {
+		while (!inFile.eof()) {
+			getline(inFile, inLine);
+			sid = stoi(inLine);
+			getline(inFile, inLine);
+			name = inLine;	
+			add_student(sid, name);
+		}
+	}
+	inFile.close();
+
+	// read in grades
+	// int sid;
+	int cid;
+	char grade;
+	inFile.open("grades.txt");
+	if (inFile.fail()) cout << fileErrorMsg << endl;
+	else {
+		while (!inFile.eof()) {
+			getline(inFile, inLine);
+			sid = stoi(inLine);
+			getline(inFile, inLine);
+			cid = stoi(inLine);
+			getline(inFile, inLine);
+			grade = inLine[0];
+			add_grade(sid, cid, grade);
+			// cout << to_string(sid) << " " << to_string(cid) << " " << grade << endl;
+		}
+	}
+	inFile.close();
+
+	// read in courses
+	// int cid;
+	// string name;
+	
+	unsigned char credits;
+	inFile.open("courses.txt");
+	if (inFile.fail()) cout << fileErrorMsg << endl;
+	else {
+		while (!inFile.eof()) {
+			getline(inFile, inLine);
+			cid = stoi(inLine);
+			cout << "cid: " << to_string(cid) << "|\n";
+			getline(inFile, name);
+			cout << "name: " << name << "|" << endl;
+			getline(inFile, inLine);
+			credits = stoi(inLine);
+			cout << "cid: " << to_string(cid) << " name: " << name << " credits: " << to_string(credits) << endl;
+			add_course(cid, name, 1);
+			// cout << to_string(cid) << " " << name << to_string(credits) << endl;
+		}
+		
+	}
+	inFile.close();
 }

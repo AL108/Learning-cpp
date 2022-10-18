@@ -19,16 +19,18 @@ Course::Course(int the_id, string the_name, unsigned char the_credits){
 	name = the_name;
 	credits = the_credits;
 }
+
 int Course::get_id(){
 	return id;
 }
+
 string Course::get_name(){
 	return name;
 }
+
 int Course::get_credits(){
 	return credits;
 }
-
 
 Grade::Grade(int sid, int cid, char grd){
 	student_id = sid;

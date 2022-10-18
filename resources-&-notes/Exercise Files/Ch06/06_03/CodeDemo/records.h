@@ -52,7 +52,10 @@ public:
 	void add_student(int, std::string);
 	void add_course(int, std::string, unsigned char);
 	void add_grade(int, int, char);
-
+	void write_student(int sid, std::string name);
+	void write_grade(int sid, int cid, char grade);
+	void write_course(int cid, std::string cname, int credits);
+	void load_records();
 	std::string get_student_name(int);
 	unsigned char get_course_credits(int);
 	float get_GPA(int);
